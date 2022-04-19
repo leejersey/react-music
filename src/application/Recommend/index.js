@@ -1,8 +1,8 @@
-//src/appliction/Home/index.js
-import React from "react";
+//src/appliction/Recommend/index.js
+import React from 'react';
 
-function Home(props) {
-  return <div>Home</div>;
+function Recommend(props) {
+  return <div>Recommend</div>;
 }
 
-export default React.memo(Home);
+export default React.memo(Recommend);

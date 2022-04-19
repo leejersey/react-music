@@ -13,18 +13,19 @@ const routes = [
     children: [
       {
         index: true,
+        path: 'recommend',
         element: <Recommend />,
       },
       {
         path: 'singers',
-        element: <Singers />
+        element: <Singers />,
       },
       {
         path: 'rank',
-        element: <Rank />
-      }
-    ]
-  }
-]
+        element: <Rank />,
+      },
+    ],
+  },
+];
 
 export default routes;
