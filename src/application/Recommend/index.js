@@ -1,4 +1,3 @@
-//src/appliction/Recommend/index.js
 import React from 'react';
 
 function Recommend(props) {

@@ -1,8 +1,10 @@
-import React from "react";
-import { IconStyle } from "./assets/iconfont/iconfont";
-import routes from "./routes/index.js";
-import { HashRouter, useRoutes } from "react-router-dom";
-import { GlobalStyle } from "./style";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { IconStyle } from './assets/iconfont/iconfont';
+import routes from './routes/index.js';
+import { HashRouter, useRoutes } from 'react-router-dom';
+import store from './store/index';
+import { GlobalStyle } from './style';
 
 const Page = () => {
   return useRoutes(routes);
@@ -10,11 +12,13 @@ const Page = () => {
 
 function App() {
   return (
-    <HashRouter>
-      <GlobalStyle></GlobalStyle>
-      <IconStyle></IconStyle>
-      <Page />
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <GlobalStyle></GlobalStyle>
+        <IconStyle></IconStyle>
+        <Page />
+      </HashRouter>
+    </Provider>
   );
 }
 
