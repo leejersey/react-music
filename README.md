@@ -1,4 +1,5 @@
-## 
+##
+
 ```
 ├─api                   // 网路请求代码、工具类函数和相关配置
 ├─application           // 项目核心功能
@@ -12,3 +13,9 @@
   serviceWorker.js      // PWA 离线应用配置
   style.js              // 默认样式
 ```
+
+## 技术栈
+
+1. swiper
+2. react-lazyload(图片懒加载)
+3. loading(进场 loading)

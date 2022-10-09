@@ -1,13 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-import TestSlice from '../application/Test/TestSlice';
-// import HomeSlice from '../application/Home/HomeSlice';
-// import movieSlice from './features/movieSlice';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducer from './reducer';
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// configureStore创建一个redux数据
-export default configureStore({
-  reducer: {
-    test: TestSlice,
-    // home: HomeSlice,
-    // movie: movieSlice,
-  },
-});
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+
+export default store;
