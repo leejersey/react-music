@@ -1,32 +1,45 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Home from '../application/Home';
 import Recommend from '../application/Recommend';
 import Singers from '../application/Singers';
 import Rank from '../application/Rank';
 import Album from '../application/Album';
-import { Navigate } from 'react-router-dom';
 
 const routes = [
   {
     path: '/',
-    element: <Home />,
-    children: [
+    component: Home,
+    routes: [
       {
         path: '/',
-        element: <Navigate to="/recommend" />,
+        exact: true,
+        render: () => <Redirect to={'/recommend'} />,
       },
       {
-        path: '/recommend',
-        element: <Recommend />,
-        children: [{ path: '/recommend/:id', element: <Album /> }],
+        path: '/recommend/',
+        component: Recommend,
+        routes: [
+          {
+            path: '/recommend/:id',
+            component: Album,
+          },
+        ],
       },
       {
         path: '/singers',
-        element: <Singers />,
+        component: Singers,
       },
       {
-        path: '/rank',
-        element: <Rank />,
+        path: '/rank/',
+        component: Rank,
+        // key: 'rank',
+        // routes: [
+        //   {
+        //     path: '/rank/:id',
+        //     component: Album,
+        //   },
+        // ],
       },
     ],
   },

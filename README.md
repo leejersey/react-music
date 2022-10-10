@@ -1,7 +1,7 @@
 ## 技术栈
 
 1. react hooks
-2. react router v6
+2. react router v5
 3. redux
 4. immutablejs
 5. styled-components

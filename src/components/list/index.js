@@ -1,13 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 import { getCount } from '../../api/utils';
 import { ListWrapper, ListItem, List } from './style';
 
 function RecommendList(props) {
-  let navigate = useNavigate();
+  const history = useHistory();
   const enterDetail = (id) => {
-    navigate(`/recommend/${id}`);
+    history.push(`/recommend/${id}`);
   };
 
   return (
@@ -16,7 +16,7 @@ function RecommendList(props) {
       <List>
         {props.recommendList.map((item, index) => {
           return (
-            <ListItem key={item.id + index} onClick={() => enterDetail(item.id)}>
+            <ListItem key={item.id} onClick={() => enterDetail(item.id)}>
               <div className="img_wrapper">
                 <div className="decorate"></div>
                 <LazyLoad placeholder={<img width="100%" height="100%" src={require('./music.png')} alt="music" />}>

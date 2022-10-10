@@ -4,13 +4,11 @@ import Loading from '../../baseUI/loading';
 import Scroll from '../../baseUI/scroll/index';
 import { filterIndex, filterIdx } from '../../api/utils';
 import { List, ListItem, SongList, Container } from './style';
-// import { useRoutes } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 import { EnterLoading } from './../Singers/style';
 import { getRankList } from './store/actionCreators';
 
 function Rank(props) {
-  // console.log(props);
   const { rankList: list, loading } = props;
 
   const { getRankListDataDispatch } = props;
@@ -91,8 +89,7 @@ function Rank(props) {
           ) : null}
         </div>
       </Scroll>
-      {/* {useRoutes(props.route.routes)} */}
-      <Outlet />
+      {renderRoutes(props.route.routes)}
     </Container>
   );
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { forceCheck } from 'react-lazyload';
 import styled from 'styled-components';
+import { renderRoutes } from 'react-router-config';
 import * as actionTypes from './store/actionCreators';
 import Slider from '../../components/slider';
 import RecommendList from '../../components/list';
@@ -43,6 +44,7 @@ function Recommend(props) {
         </div>
       </Scroll>
       {enterLoading ? <Loading></Loading> : null}
+      {renderRoutes(props.route.routes)}
     </Content>
   );
 }
@@ -67,5 +69,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-// 将 ui 组件包装成容器组件
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Recommend));
