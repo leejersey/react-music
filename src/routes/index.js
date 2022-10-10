@@ -1,11 +1,10 @@
-//routes/index.js
 import React from 'react';
-
 import Home from '../application/Home';
 import Recommend from '../application/Recommend';
 import Singers from '../application/Singers';
 import Rank from '../application/Rank';
-// import Test from '../application/Test';
+import Album from '../application/Album';
+import { Navigate } from 'react-router-dom';
 
 const routes = [
   {
@@ -13,22 +12,22 @@ const routes = [
     element: <Home />,
     children: [
       {
-        index: true,
-        path: 'recommend',
-        element: <Recommend />,
+        path: '/',
+        element: <Navigate to="/recommend" />,
       },
       {
-        path: 'singers',
+        path: '/recommend',
+        element: <Recommend />,
+        children: [{ path: '/recommend/:id', element: <Album /> }],
+      },
+      {
+        path: '/singers',
         element: <Singers />,
       },
       {
-        path: 'rank',
+        path: '/rank',
         element: <Rank />,
       },
-      // {
-      //   path: 'test',
-      //   element: <Test />,
-      // },
     ],
   },
 ];

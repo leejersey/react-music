@@ -1,4 +1,3 @@
-//actionCreators.js
 import * as actionTypes from './constants';
 import { fromJS } from 'immutable'; // 将 JS 对象转换成 immutable 对象
 import { getBannerRequest, getRecommendListRequest } from '../../../api/request';

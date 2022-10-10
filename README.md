@@ -1,4 +1,20 @@
-##
+## 技术栈
+
+1. react hooks
+2. react router v6
+3. redux
+4. immutablejs
+5. styled-components
+
+## 技术点
+
+1. swiper
+2. react-lazyload(图片懒加载)
+3. loading(进场 loading)
+4. react-transition-group(动画)
+5. better-scroll(滚动条)
+
+## 项目结构
 
 ```
 ├─api                   // 网路请求代码、工具类函数和相关配置
@@ -13,9 +29,3 @@
   serviceWorker.js      // PWA 离线应用配置
   style.js              // 默认样式
 ```
-
-## 技术栈
-
-1. swiper
-2. react-lazyload(图片懒加载)
-3. loading(进场 loading)

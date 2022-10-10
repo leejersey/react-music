@@ -1,8 +1,7 @@
-//src/appliction/Home/index.js
 import React from 'react';
 import { Top, Tab, TabItem } from './style';
-import { Outlet } from 'react-router';
-import { NavLink } from 'react-router-dom';
+// import { Outlet } from 'react-router';
+import { NavLink, Outlet } from 'react-router-dom';
 
 function Home(props) {
   return (
