@@ -5,7 +5,7 @@ import { getCount } from '../../api/utils';
 import { ListWrapper, ListItem, List } from './style';
 
 function RecommendList(props) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const enterDetail = (id) => {
     navigate(`/recommend/${id}`);
   };

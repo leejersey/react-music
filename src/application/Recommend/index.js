@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Outlet } from 'react-router-dom';
 import { forceCheck } from 'react-lazyload';
 import styled from 'styled-components';
 import * as actionTypes from './store/actionCreators';
@@ -43,6 +44,7 @@ function Recommend(props) {
         </div>
       </Scroll>
       {enterLoading ? <Loading></Loading> : null}
+      <Outlet />
     </Content>
   );
 }

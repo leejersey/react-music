@@ -1,6 +1,5 @@
 import React from 'react';
 import { Top, Tab, TabItem } from './style';
-// import { Outlet } from 'react-router';
 import { NavLink, Outlet } from 'react-router-dom';
 
 function Home(props) {
@@ -12,17 +11,17 @@ function Home(props) {
         <span className="iconfont search">&#xe62b;</span>
       </Top>
       <Tab>
-        <NavLink to="/recommend">
+        <NavLink to="/recommend" className="/">
           <TabItem>
             <span> 推荐 </span>
           </TabItem>
         </NavLink>
-        <NavLink to="/singers">
+        <NavLink to="/singers" className="/">
           <TabItem>
             <span> 歌手 </span>
           </TabItem>
         </NavLink>
-        <NavLink to="/rank">
+        <NavLink to="/rank" className="/">
           <TabItem>
             <span> 排行榜 </span>
           </TabItem>
