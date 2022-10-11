@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import LazyLoad, { forceCheck } from 'react-lazyload';
+import { useNavigate, Outlet } from 'react-router-dom';
 import Horizen from '../../baseUI/horizen-item';
 import Scroll from '../../baseUI/scroll/index';
 import { categoryTypes, alphaTypes } from '../../api/config';
@@ -18,6 +19,8 @@ import { NavContainer, ListContainer, List, ListItem } from './style';
 import Loading from '../../baseUI/loading';
 
 function Singers(props) {
+  const navigate = useNavigate();
+
   const { singerList, enterLoading, pullUpLoading, pullDownLoading, pageCount } = props;
 
   const { getHotSingerDispatch, updateDispatch, pullDownRefreshDispatch, pullUpRefreshDispatch } = props;
@@ -50,6 +53,10 @@ function Singers(props) {
     pullDownRefreshDispatch(category, alpha);
   };
 
+  const enterDetial = (id) => {
+    navigate(`/singers/${id}`);
+  };
+
   // 渲染函数，返回歌手列表
   const renderSingerList = () => {
     const list = singerList ? singerList.toJS() : [];
@@ -57,7 +64,7 @@ function Singers(props) {
       <List>
         {list.map((item, index) => {
           return (
-            <ListItem key={item.accountId + '' + index}>
+            <ListItem key={item.id} onClick={() => enterDetial(item.id)}>
               <div className="img_wrapper">
                 <LazyLoad placeholder={<img width="100%" height="100%" src={require('./singer.png')} alt="music" />}>
                   <img src={`${item.picUrl}?param=300x300`} width="100%" height="100%" alt="music" />
@@ -97,6 +104,7 @@ function Singers(props) {
         >
           {renderSingerList()}
         </Scroll>
+        <Outlet />
         <Loading show={enterLoading}></Loading>
       </ListContainer>
     </>

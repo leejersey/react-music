@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Loading from '../../baseUI/loading';
 import Scroll from '../../baseUI/scroll/index';
-import { filterIndex, filterIdx } from '../../api/utils';
+import { filterIndex } from '../../api/utils';
 import { List, ListItem, SongList, Container } from './style';
-// import { useRoutes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { EnterLoading } from './../Singers/style';
 import { getRankList } from './store/actionCreators';
 
 function Rank(props) {
-  // console.log(props);
+  const navigate = useNavigate();
+
   const { rankList: list, loading } = props;
 
   const { getRankListDataDispatch } = props;
@@ -23,14 +24,12 @@ function Rank(props) {
 
   useEffect(() => {
     getRankListDataDispatch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const enterDetail = (name) => {
-    const idx = filterIdx(name);
-    if (idx === null) {
-      alert('暂无相关数据');
-      return;
-    }
+  const enterDetail = (detail) => {
+    console.log(detail);
+    navigate(`/rank/${detail.id}`);
   };
 
   // 这是渲染榜单列表函数，传入 global 变量来区分不同的布局方式
@@ -39,7 +38,7 @@ function Rank(props) {
       <List globalRank={global}>
         {list.map((item) => {
           return (
-            <ListItem key={item.coverImgId} tracks={item.tracks} onClick={() => enterDetail(item.name)}>
+            <ListItem key={item.coverImgId} tracks={item.tracks} onClick={() => enterDetail(item)}>
               <div className="img_wrapper">
                 <img src={item.coverImgUrl} alt="" />
                 <div className="decorate"></div>
@@ -91,7 +90,6 @@ function Rank(props) {
           ) : null}
         </div>
       </Scroll>
-      {/* {useRoutes(props.route.routes)} */}
       <Outlet />
     </Container>
   );
