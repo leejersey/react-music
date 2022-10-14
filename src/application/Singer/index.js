@@ -66,6 +66,7 @@ function Singer(props) {
 
     // 指的是滑动距离占图片高度的百分比
     const percent = Math.abs(newY / height);
+
     if (newY > 0) {
       imageDOM.style['transform'] = `scale(${1 + percent})`;
       buttonDOM.style['transform'] = `translate3d(0, ${newY}px, 0)`;
